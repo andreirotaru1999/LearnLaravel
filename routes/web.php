@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return env('APP_NAME');
-    return view('welcome');
+    //return env('APP_NAME');
+    //return config('services.ses.key');
+    return View('welcome');
 });
 
 Route::get('/user', 'UserController@index');
+Route::post('/upload','UserController@uploadAvatar');
 
 
 Auth::routes();
